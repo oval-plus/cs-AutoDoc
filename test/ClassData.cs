@@ -81,6 +81,7 @@ namespace api
     public class ApiMethod
     {
         public string ApiName { get; set; }
+        public string MethodName { get; set; }
         public string ChineseName { get; set; }
         public string LogicType { get; set; }
         public string InputDll { get; set; }
@@ -89,6 +90,7 @@ namespace api
         public ApiMethod()
         {
             ApiName = "";
+            MethodName = "";
             ChineseName = "";
             LogicType = "";
             InputDll = "";

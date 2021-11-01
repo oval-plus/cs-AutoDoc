@@ -6,7 +6,6 @@ using System.Reflection;
 using System.Configuration;
 using System.Diagnostics;
 using Microsoft.Extensions.Configuration;
-using Newtonsoft.Json;
 
 namespace api
 {
@@ -15,7 +14,7 @@ namespace api
         private static List<string> DefaultNameList;
         private static List<string> NameList;
         private static Configuration configXML;
-        private static IConfiguration configJson;
+        internal static IConfiguration configJson;
         private static List<ApiMethod> ApiMethods;
         internal static List<ClassTree> VisitedData;
 
@@ -60,7 +59,7 @@ namespace api
             List<MethodData> methodDataList = ConstructFieldTree(assemblyDll);
             // 5. 写md
             GenerateMd md = new GenerateMd();
-            md.ConvertToHtml("aggregate", methodDataList);
+            md.ConvertToHtml(methodDataList);
 
         }
 
@@ -71,7 +70,7 @@ namespace api
             {
                 ApiMethod apiMethod = ApiMethods[i];
                 Type logicType = assemblyDll.GetType(apiMethod.LogicType);
-                MethodInfo cur_method = logicType.GetMethod(apiMethod.ApiName);
+                MethodInfo cur_method = logicType.GetMethod(apiMethod.MethodName);
                 Type returnType = cur_method.ReturnType;
                 ClassTree tree = null;
                 if (returnType != typeof(void))

@@ -20,9 +20,9 @@ namespace api
         {
         }
 
-        public void ConvertToHtml(string funcName, List<MethodData> methodDataList)
+        public void ConvertToHtml(List<MethodData> methodDataList)
         {
-            string mdText = BuildFuncName(funcName);
+            string mdText = BuildFuncName(FieldMethod.configJson["FuncName"]);
             mdText += BuildTOC();
             foreach (MethodData methodData in methodDataList)
             {
@@ -30,13 +30,15 @@ namespace api
             }
             mdText += BuildMethod();
             string res = Markdig.Markdown.ToHtml(mdText);
-            System.IO.FileInfo fi = new System.IO.FileInfo(@"output.pdf");
+            string outputPath = FieldMethod.configJson["OutputPath"] + FieldMethod.configJson["FuncName"];
+            System.IO.FileInfo fi = new System.IO.FileInfo(outputPath + @".pdf");
             PdfWriter writer = new PdfWriter(fi);
             HtmlConverter.ConvertToPdf(res, writer);
-            using (StreamWriter sw = new StreamWriter(@"output.md"))
+            using (StreamWriter sw = new StreamWriter(outputPath + @".md"))
             {
                 sw.WriteLine(mdText);
             }
+            Console.WriteLine("Generate Complete!");
         }
 
         private string BuildFuncName(string funcName)
@@ -104,7 +106,6 @@ namespace api
             }
             ClassData cur = outputParam.Root;
             res += BuildAnchor(cur.RealType.Name) + "\n";
-            //cur.ApiNames.Add(apiName);
             res += "\n";
             return res;
         }
