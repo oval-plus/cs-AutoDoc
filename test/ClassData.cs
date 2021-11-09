@@ -85,7 +85,6 @@ namespace api
         public string ChineseName { get; set; }
         public string LogicType { get; set; }
         public string InputDll { get; set; }
-        public string OutputDll { get; set; }
         public string InputParam { get; set; }
         public ApiMethod()
         {
@@ -94,7 +93,6 @@ namespace api
             ChineseName = "";
             LogicType = "";
             InputDll = "";
-            OutputDll = "";
             InputParam = "";
         }
     }

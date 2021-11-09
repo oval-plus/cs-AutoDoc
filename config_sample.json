@@ -1,0 +1,18 @@
+{
+  "ExceptionData": "self-defined_classes",
+  "DefaultData": "int;long;double;string;bool;Type;Int64;Int32;String;Bool;Double",
+  "ApiMethod":[
+    {
+      "ApiName": "apiname which required to display on the first line",
+      "MethodName": "Method name in the dll, do not write the full name",
+      "ChineseName": "获取xxx功能",
+      "LogicType": "logic full name",
+      "InputDll":"~\\xxx\\yyy.dll, input param dll",
+      "InputParam":"input param full name, including the namespace"
+    }
+      ],
+  "dll_path": "dll which contains the logic",
+  "FuncName": "Document Name",
+  "OutputPath": "~\\~\\~\\"
+}
+
