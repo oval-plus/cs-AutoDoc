@@ -1,13 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.IO;
-using Markdig;
-using Markdig.Extensions.AutoIdentifiers;
-using Markdig.Renderers;
-using Markdig.Renderers.Html;
 using iText.Html2pdf;
 using iText.Kernel.Pdf;
 using System.Reflection;
